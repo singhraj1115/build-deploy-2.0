@@ -7,6 +7,8 @@ jobs:
       - checkout
       - run: echo "A First Hello"
  deploy:
+   docker: 
+      - image: circleci/ruby:2.4.1-jessie
    steps:
      - checkout
      - run:
