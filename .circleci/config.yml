@@ -6,6 +6,7 @@ jobs:
     steps: 
       - checkout
       - run: echo "A First Hello"
+      - run: echo "A second hello but does not push code to heroku"
   deploy:
     docker:
       - image: buildpack-deps:trusty
