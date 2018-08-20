@@ -6,15 +6,14 @@ jobs:
     steps: 
       - checkout
       - run: echo "A First Hello"
- deploy:
-   docker: 
-      - image: circleci/ruby:2.4.1-jessie
-   steps:
-     - checkout
-     - run:
-        name: Deploy Master to Heroku 
-        command: |
-          ls -l 
+ docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 workflows:
  version: 2
  build-deploy:
